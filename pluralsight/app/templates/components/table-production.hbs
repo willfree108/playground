@@ -1,0 +1,31 @@
+<thead>
+  <tr>
+    {{table-th name="Dimension" current_sort=sort_by sort_by="default" sort_data=(action 'sort_data')}}
+    {{table-th name="Boards" current_sort=sort_by sort_by="boards" sort_data=(action 'sort_data')}}
+    {{table-th name="BoardFeet" current_sort=sort_by sort_by="boardfeet" sort_data=(action 'sort_data')}}
+    {{#table-th}}{{fa-icon "cogs"}}{{/table-th}}
+  </tr>
+</thead>
+<tbody>
+  <tr class="total">
+    <td>All Dimensions</td>
+    <td>{{total_boards}}</td>
+    <td>{{format-number total_boardsfeet precision=2}}</td>
+  </tr>
+  {{#each sorted_model as |row|}}
+    <tr class="{{row-class row}}">
+      <td>
+        {{#link-to "production.dimension" row.DimensionID}}
+          {{row.DimensionName}}
+        {{/link-to}}
+      </td>
+      <td class='quantity'>{{row.boards}}</td>
+      <td class='quantity'>{{format-number row.boardsfeet precision=2}}</td>
+      <td>
+        {{#link-to 'production.dimension' row.DimensionID}}
+          {{fa-icon 'search'}}
+        {{/link-to}}
+      </td>
+    </tr>
+  {{/each}}
+</tbody>

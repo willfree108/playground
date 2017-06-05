@@ -1,0 +1,94 @@
+Discovering Ember
+
+Model View Controller (MVC) :
+	- Model(JSON, init)
+	- Vue(Component, template)
+	- Controller (router, handleRouter)
+
+Ember’s loading:
+	URL -> router -> handRoute -> Components -> Page
+
+Tips:
+	- Ember.$.getJSON -> http client promise ?
+	- no code inside template
+	- helpers (=== special attribute)
+	- handlebars FAIL SILENTLY
+	- component.js === script vue.js
+
+Ember-CLI:
+	- Pipe
+	- Structure
+	- actions :
+		- init
+		- s/server (hot reloading)
+		- generate:
+			- route
+			- template
+			- helpers
+			- controllers
+			- component
+			- service
+			- initialize
+			- adapter
+		- addons (ember-cli-sass)
+		- build
+		- test
+
+Routing: 	- passage manuel des paramètres
+	- structure chaque route dans un fichier dédié
+	- loading facile avec le template -loading
+	- fetch data with a promise !
+
+Template (~ Handlebars):
+	- helpers:
+		- {{outlet}}
+		- {{#link-to ‘path’ prop}}{{/link-to}}
+		- {{#if hasBlock}}
+		- {{yield}}
+	- helpers with # need to be closed
+	- Ref model ( === state )
+	- events/action (=== methods)
+	- ternaires works (but it’s better to use ember-truth-helpers)
+
+Debugging:
+	- helpers log
+	- helpers debugger
+
+Ember.Object:
+	- extend => this._super(…arguments) -> add to all object ember
+	- use get and set manually
+	- special method for reference (like array or object)
+	- computed (like Vue.js)
+	- macros (~ getters)
+	- life cycle (like vue.js)
+
+Controller / route handler / component.js:
+	- doit watcher manuellement chaque state/model
+	- doit faire les computed dans le controller
+	- pour chaque model
+
+Component:
+	- handle 'controller'
+	- handle block
+
+Events/action/methods => Data Down Actions Up (DDAU) from/to Route Handler:
+	- need a component to load
+
+Service:
+	- class needed to be used in all the application
+	- initializers: configure at boot
+
+To see:
+	- transition composant ?
+	- transition component list/group ?
+	- binding css to a component ?
+	- binding js to a component ?
+	- load async component ?
+	- http://www.ember-redux.com/ -> may simplify a lot of thing
+	- ember-lodash ?
+
+Conclusion:   Comme attendu d’un framework qui impose un opinion, c’est plus long a apprendre mais une fois maitriser il n’y plus de doute sur comment implementer telle chose.
+Beaucoup:
+	- plus de: découpe, 'complication', verbeux, controle
+	- moin de: temp reel
+que vue.js

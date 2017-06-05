@@ -1,0 +1,25 @@
+
+<div class="{{unless more 'col-sm-4 col-md-4 col-lg-4' 'col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2'}}">
+  <div class="thumbnail">
+    <img src="https://media.giphy.com/media/HwGF3bAIEoNuU/giphy.gif" alt="...">
+    <div class="caption">
+      {{#unless more}}
+        <h3>{{ item.title }}</h3>
+      {{/unless}}
+      <p>{{ item.description }}</p>
+      {{#unless more}}
+        <p>{{#link-to "api" item.id class='btn btn-primary btn-small'}}More info{{/link-to}}</p>
+      {{/unless}}
+    </div>
+    {{#if more}}
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        {{#each item.plan as |options|}}
+          {{options-api options=options}}
+        {{/each}}
+        <button {{action "save" item.title}}>Save</button>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</div>
